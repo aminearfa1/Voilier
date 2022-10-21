@@ -1,26 +1,12 @@
 #include "stm32f10x.h"
 
-
-typedef struct 
-{ 
-	uint32_t BaudRate ;
-	
-	uint32_t DataWidth ;
-	
-	uint32_t StopBits;
-	
-	uint32_t Parity;
-	
-	uint32_t TransferDirection ;
-	
-	uint32_t HardwareFlowControl ;
-	
-	uint32_t OverSampling ;
-
-} USART_InitTypeDef;
+#define BdRate (9600)
 
 
-void usart_init () ;
+
+void My_Usart_init(USART_TypeDef * UART);
 
 
-void usart_tx (int ch) ;
+void Usart_tx (USART_TypeDef * UART, int ch ) ;
+
+char Usart_rx (USART_TypeDef * UART) ;

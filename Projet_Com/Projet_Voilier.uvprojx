@@ -383,31 +383,6 @@
           <GroupName>MesSources</GroupName>
           <Files>
             <File>
-              <FileName>Batterie.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Batterie.c</FilePath>
-            </File>
-            <File>
-              <FileName>Girouette.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Girouette.c</FilePath>
-            </File>
-            <File>
-              <FileName>Informations.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Informations.c</FilePath>
-            </File>
-            <File>
-              <FileName>Plateau.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Plateau.c</FilePath>
-            </File>
-            <File>
-              <FileName>Voiles.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Voiles.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
@@ -441,6 +416,16 @@
               <FileName>MyUsart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MesDrivers\Source\MyUsart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Service</GroupName>
+          <Files>
+            <File>
+              <FileName>Informations.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -830,31 +815,6 @@
           <GroupName>MesSources</GroupName>
           <Files>
             <File>
-              <FileName>Batterie.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Batterie.c</FilePath>
-            </File>
-            <File>
-              <FileName>Girouette.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Girouette.c</FilePath>
-            </File>
-            <File>
-              <FileName>Informations.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Informations.c</FilePath>
-            </File>
-            <File>
-              <FileName>Plateau.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Plateau.c</FilePath>
-            </File>
-            <File>
-              <FileName>Voiles.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Fonctionnalités\Voiles.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
@@ -888,6 +848,16 @@
               <FileName>MyUsart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MesDrivers\Source\MyUsart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Service</GroupName>
+          <Files>
+            <File>
+              <FileName>Informations.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
             </File>
           </Files>
         </Group>

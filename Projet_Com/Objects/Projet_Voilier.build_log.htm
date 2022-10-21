@@ -27,10 +27,23 @@ Project File Date:  10/21/2022
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Simulation'
+assembling startup_stm32f10x_md.s...
+compiling MySpi.c...
+compiling MyGPIO.c...
+..\MesDrivers\Source\MyGPIO.c(1): error:  #5: cannot open source input file "../Include/Driver_GPIO.h": No such file or directory
+  #include "../Include/Driver_GPIO.h"
+..\MesDrivers\Source\MyGPIO.c: 0 warnings, 1 error
 compiling MyUsart.c...
-linking...
-Program Size: Code=712 RO-data=268 RW-data=16 ZI-data=1632  
-".\Objects\Projet_Voilier.axf" - 0 Error(s), 0 Warning(s).
+..\MesDrivers\Include\MyUsart.h(26): warning:  #1-D: last line of file ends without a newline
+  void Usart_tx (USART_InitTypeDef * usart, int ch ) ;
+..\MesDrivers\Source\MyUsart.c(9): error:  #42: operand types are incompatible ("USART_InitTypeDef *" and "USART_TypeDef *")
+  	if (UART == USART1) {
+..\MesDrivers\Source\MyUsart.c(16): error:  #42: operand types are incompatible ("USART_InitTypeDef *" and "USART_TypeDef *")
+  		if (UART == USART3) {
+..\MesDrivers\Source\MyUsart.c: 1 warning, 2 errors
+compiling system_stm32f10x.c...
+compiling MyTimer.c...
+".\Objects\Projet_Voilier.axf" - 3 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -57,11 +70,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Include file:  RTE_Driver\Config\RTE_Device.h
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Source file:   Device\Source\system_stm32f10x.c
-Build Time Elapsed:  00:00:01
+Target not created.
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
