@@ -1,5 +1,7 @@
 #include <stm32f10x.h>
-#include <MySpi.h>
+#include "MySpi.h"
+
+
 
 
 void SPIConfig(void){
@@ -27,6 +29,7 @@ void SPIConfig(void){
 void SPI_Transmit(uint8_t *data,int size)
 {
 	int i=0;
+	uint8_t temp;
 	while(i<size)
 	{
 		while (!((SPI1->SR)&SPI_SR_TXE)) {}  // wait for TXE bit to set -> This will indicate that the buffer is empty
@@ -38,8 +41,8 @@ void SPI_Transmit(uint8_t *data,int size)
 	while (((SPI1->SR)&SPI_SR_BSY)) {} // wait for BSY bit to Reset -> This will indicate that SPI is not busy in communication	
 		
 		//  Clear the Overrun flag by reading DR and SR
-	uint8_t temp = SPI1->DR;
-					temp = SPI1->SR;
+	temp = SPI1->DR;
+	temp = SPI1->SR;
 }
 
 void SPI_Receive(uint8_t *data, int size)
@@ -87,10 +90,10 @@ void adxl_write (uint8_t address, uint8_t value)
 
 void adxl_read (uint8_t address)
 {
-	uint8_t RxData[6];
+	int16_t x,y,z;
+	uint8_t rec;
 	address |= 0x80;  // read operation
 	address |= 0x40;  // multibyte read
-	uint8_t rec;
 	CS_Enable ();  // pull the pin low
 	SPI_Transmit (&address, 1);  // send address
 	SPI_Receive (RxData, 6);  // receive 6 bytes data
