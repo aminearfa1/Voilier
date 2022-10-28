@@ -9,10 +9,10 @@ void SPIConfig(void){
 	
 	SPI1->CR1|= SPI_CR1_MSTR; //1=Master configuration 0=slave configuration
 	
-	SPI1->CR1|= (3<<3);  //Baud Rate control BR[2:0] = 011: fPCLK/16, PCLK2 = 80MHz, SPI clk = 5MHz
+	SPI1->CR1|= (0x011<<3);  //Baud Rate control BR[2:0] = 011: fPCLK/16, PCLK2 = 80MHz, SPI clk = 5MHz
 	
 	
-	SPI1->CR1&=~SPI_CR1_LSBFIRST; //LSBFirst=1, Msb first=0
+	SPI1->CR1&=~(0<<7); //LSBFirst=1, Msb first=0
 	
 	
 	SPI1->CR1|= SPI_CR1_SSM;//Software slave management 1= enabled, 0= disabled
@@ -103,3 +103,5 @@ void adxl_init (void)
 	adxl_write (0x2d, 0x00);  // reset all bits
 	adxl_write (0x2d, 0x08);  // power_cntl measure and wake up 8hz
 }
+
+
