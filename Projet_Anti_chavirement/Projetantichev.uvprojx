@@ -385,9 +385,9 @@
           <GroupName>MesSources</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>Antichevirement.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
+              <FilePath>.\Antichevirement.c</FilePath>
             </File>
           </Files>
         </Group>
