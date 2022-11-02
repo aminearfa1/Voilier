@@ -10,23 +10,20 @@ void (* pointer4) (void);
 
 
 // Initialize TIMER
-void MyTimer_Base_Init ( MyTimer_Struct_TypeDef * TimerStruct)
-{
-	if(TimerStruct->Timer==TIM1){
+void Timer_Base_Init (TIM_TypeDef * Timer, unsigned short ARR, unsigned short PSC) {
+	if (Timer == TIM1)
 		RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
-	}else if(TimerStruct->Timer==TIM2){
+	else if (Timer == TIM2)
 		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
-	}
-	else if(TimerStruct->Timer==TIM3){
+	else if (Timer == TIM3)
 		RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
-	}
-	else if(TimerStruct->Timer==TIM4){
+	else if (Timer == TIM4)
 		RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
-	}
+	else
+		return;
 	
-	TimerStruct->Timer->ARR = TimerStruct->ARR;
-	TimerStruct->Timer->PSC = TimerStruct->PSC;
-
+	Timer->PSC = PSC;
+	Timer->ARR = ARR;
 }
 
 // Activate Interruption
