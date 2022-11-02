@@ -11,17 +11,9 @@ void My_Usart_init(USART_TypeDef * UART){
 	if (UART == USART1) {
 	RCC->APB2ENR |= RCC_APB2ENR_USART1EN ;
 	//Gpio init tx 
-	tx.GPIO=GPIOA;
-	tx.GPIO_Conf=Out_PushPull;
-	tx.GPIO_Pin=9;
-	MyGPIO_Init(&tx);
-	
+	GPIO_Init(GPIOA, 9, AltOut_Ppull_2MHZ);
 	//Gpio init rx
-	rx.GPIO=GPIOA;
-	rx.GPIO_Conf=Out_PushPull;
-	rx.GPIO_Pin=10;
-	MyGPIO_Init(&rx);
-	
+	GPIO_Init(GPIOA, 10, In_Floating);
 	
 	USART1->BRR |= (int) 72000000/(9600) ; //Fréquence h USART1 = 72MHz
 	USART1->CR1|= USART_CR1_TE; //USART Tx
