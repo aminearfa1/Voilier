@@ -9,13 +9,14 @@ signed char val = 0;
 float vf;
 
 void vitesse_modifier() {
-	valeur = MyUART_Receive(UART) ;
 	
 }
 //test plateau
 int main (){
 
-	Plateau_Init(vitesse_modifier);
+
+	
+	};
 	do {
 		
 		

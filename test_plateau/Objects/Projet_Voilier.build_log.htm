@@ -27,7 +27,20 @@ Project File Date:  11/07/2022
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Simulation'
-".\Objects\Projet_Voilier.axf" - 0 Error(s), 0 Warning(s).
+assembling startup_stm32f10x_md.s...
+compiling main.c...
+main.c(12): error:  #20: identifier "valeur" is undefined
+  	valeur = MyUART_Receive(UART) ;
+main.c(12): warning:  #223-D: function "MyUART_Receive" declared implicitly
+  	valeur = MyUART_Receive(UART) ;
+main.c(12): error:  #20: identifier "UART" is undefined
+  	valeur = MyUART_Receive(UART) ;
+main.c(23): warning:  #1-D: last line of file ends without a newline
+  }
+main.c: 2 warnings, 2 errors
+compiling system_stm32f10x.c...
+compiling Plateau.c...
+".\Objects\Projet_Voilier.axf" - 2 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,11 +67,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\system_stm32f10x.c
-Build Time Elapsed:  00:00:00
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Include file:  RTE_Driver\Config\RTE_Device.h
+Target not created.
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
