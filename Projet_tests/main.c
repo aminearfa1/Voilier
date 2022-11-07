@@ -10,11 +10,13 @@ int main (){
 My_Usart_init(USART1);
 	
 	
+MyUART_ActiveIT();
 	
-	MyUART_ActiveIT();
-	
-	Usart_tx(USART1, "félicitation");
+Usart_tx(USART1, "félicitation");
 
+while(1){ 
+	
+	}
 }
 
 

@@ -40,7 +40,25 @@ void My_Usart_init(USART_TypeDef * UART){
 }
 
 
-void Usart_tx(USART_TypeDef * usart, int ch ) {
+
+
+void MyUART_ActiveIT (USART_TypeDef * UART, char Prio, void (*IT_function) (void)) {
+	
+	UART->CR1 |= USART_CR1_RXNEIE ; //Envoie d'une demande d'interruption validée
+	
+	if (UART == USART1) {
+		NVIC_EnableIRQ(USART1_IRQn);
+		NVIC_SetPriority(USART1_IRQn, Prio);
+		ptrUART1 = IT_function;
+	}else if (UART == USART3) {
+		NVIC_EnableIRQ(USART3_IRQn);
+		NVIC_SetPriority(USART3_IRQn, Prio);
+		ptrUART3 = IT_function;
+	}
+}
+
+
+void Usart_tx(USART_TypeDef * usart, char * info ) {
 	while ( !(USART1->SR & (USART_SR_TXE))){// TXE , SR=Status Register
 	USART1->DR =(ch & 0xFF); //écrire dans le Data Register
 	}	
@@ -52,3 +70,9 @@ char Usart_rx(USART_TypeDef * UART ) {
 	}	
 	
 
+void USART1_IRQHandler (void) {
+	if (ptrUART1 != 0) (*ptrUART1) () ;
+}
+void USART3_IRQHandler (void) {
+	if (ptrUART3 != 0) (*ptrUART3) () ;
+}
