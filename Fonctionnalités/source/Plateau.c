@@ -2,16 +2,14 @@
 #include "MyTimer.h"
 #include "Plateau.h"
 
-
-
 void Plateau_Init(void){
 	// PWM 
-	GPIO_Init(GPIOB, 6, AltOut_Ppull_2MHZ);
+	MyGPIO_Init(GPIOB, 6, AltOut_PushPull);
 	// Bit de sens 
-	GPIO_Init(GPIOC, 7, Out_Ppull_2MHZ);
+	MyGPIO_Init(GPIOC, 7, Out_PushPull);
 	
-	// Initialisation du Timer 4 (20kHz)
-	Timer_Base_Init(TIM4, ,0);
+	// Initialisation du Timer 4 à (20kHz)
+	MyTimer_Base_Init(TIM4,3599 ,0);
 	
 	// Initialisation de la PWM sur TIM4 & Channel 1
 	MyTimer_PWM_Init(TIM4, 1);
@@ -20,5 +18,5 @@ void Plateau_Init(void){
 	MyTimer_PWM_ConfigureRatio(TIM4,1, 0);
 	
 	// Lancement du compteur
-	Timer_Base_Start(TIM4);
+	MyTimer_Base_Start(TIM4);
 }	

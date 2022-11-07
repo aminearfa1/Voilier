@@ -21,29 +21,52 @@ Target DLL:      UL2CM3.DLL V1.163.9.0
 Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
-U:\Windows\Bureau\Voilier\Projet\Projet_Voilier.uvprojx
-Project File Date:  10/21/2022
+U:\Windows\Bureau\Voilier\test_plateau\Projet_Voilier.uvprojx
+Project File Date:  11/07/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Simulation'
+compiling main.c...
+main.c(8): warning:  #1-D: last line of file ends without a newline
+  }
+main.c: 1 warning, 0 errors
+compiling Plateau.c...
+..\Fonctionnalités\source\Plateau.c(9): warning:  #223-D: function "GPIO_Init" declared implicitly
+  	GPIO_Init(GPIOB, 6, AltOut_Ppull_2MHZ);
+..\Fonctionnalités\source\Plateau.c(9): error:  #20: identifier "AltOut_Ppull_2MHZ" is undefined
+  	GPIO_Init(GPIOB, 6, AltOut_Ppull_2MHZ);
+..\Fonctionnalités\source\Plateau.c(11): error:  #20: identifier "Out_Ppull_2MHZ" is undefined
+  	GPIO_Init(GPIOC, 7, Out_Ppull_2MHZ);
+..\Fonctionnalités\source\Plateau.c(14): warning:  #223-D: function "Timer_Base_Init" declared implicitly
+  	Timer_Base_Init(TIM4, ,0);
+..\Fonctionnalités\source\Plateau.c(14): error:  #29: expected an expression
+  	Timer_Base_Init(TIM4, ,0);
+..\Fonctionnalités\source\Plateau.c(23): warning:  #223-D: function "Timer_Base_Start" declared implicitly
+  	Timer_Base_Start(TIM4);
+..\Fonctionnalit�s\source\Plateau.c: 3 warnings, 3 errors
 assembling startup_stm32f10x_md.s...
 compiling MySpi.c...
-compiling MyGPIO.c...
-..\MesDrivers\Source\MyGPIO.c(1): error:  #5: cannot open source input file "../Include/Driver_GPIO.h": No such file or directory
-  #include "../Include/Driver_GPIO.h"
-..\MesDrivers\Source\MyGPIO.c: 0 warnings, 1 error
-compiling MyUsart.c...
-..\MesDrivers\Include\MyUsart.h(26): warning:  #1-D: last line of file ends without a newline
-  void Usart_tx (USART_InitTypeDef * usart, int ch ) ;
-..\MesDrivers\Source\MyUsart.c(9): error:  #42: operand types are incompatible ("USART_InitTypeDef *" and "USART_TypeDef *")
-  	if (UART == USART1) {
-..\MesDrivers\Source\MyUsart.c(16): error:  #42: operand types are incompatible ("USART_InitTypeDef *" and "USART_TypeDef *")
-  		if (UART == USART3) {
-..\MesDrivers\Source\MyUsart.c: 1 warning, 2 errors
-compiling system_stm32f10x.c...
+..\MesDrivers\Source\MySpi.c(32): warning:  #550-D: variable "temp"  was set but never used
+  	uint8_t temp;
+..\MesDrivers\Source\MySpi.c(93): warning:  #177-D: variable "x"  was declared but never referenced
+  	int16_t x,y,z;
+..\MesDrivers\Source\MySpi.c(93): warning:  #177-D: variable "y"  was declared but never referenced
+  	int16_t x,y,z;
+..\MesDrivers\Source\MySpi.c(93): warning:  #177-D: variable "z"  was declared but never referenced
+  	int16_t x,y,z;
+..\MesDrivers\Source\MySpi.c(94): warning:  #177-D: variable "rec"  was declared but never referenced
+  	uint8_t rec;
+..\MesDrivers\Source\MySpi.c: 5 warnings, 0 errors
+compiling MyADC.c...
 compiling MyTimer.c...
-".\Objects\Projet_Voilier.axf" - 3 Error(s), 1 Warning(s).
+compiling MyUsart.c...
+..\MesDrivers\Source\MyUsart.c(80): warning:  #1-D: last line of file ends without a newline
+  }
+..\MesDrivers\Source\MyUsart.c: 1 warning, 0 errors
+compiling MyGPIO.c...
+compiling system_stm32f10x.c...
+".\Objects\Projet_Voilier.axf" - 3 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -71,8 +94,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\system_stm32f10x.c
 Target not created.
 Build Time Elapsed:  00:00:02

@@ -423,9 +423,9 @@
           <GroupName>Service</GroupName>
           <Files>
             <File>
-              <FileName>Informations.c</FileName>
+              <FileName>Plateau.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
+              <FilePath>..\Fonctionnalités\source\Plateau.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -770,7 +770,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\MesDrivers\Include</IncludePath>
+              <IncludePath>..\MesDrivers\Include;..\Fonctionnalités\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -855,9 +855,9 @@
           <GroupName>Service</GroupName>
           <Files>
             <File>
-              <FileName>Informations.c</FileName>
+              <FileName>Plateau.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
+              <FilePath>..\Fonctionnalités\source\Plateau.c</FilePath>
             </File>
           </Files>
         </Group>
