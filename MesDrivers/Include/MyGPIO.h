@@ -19,7 +19,7 @@ typedef struct
 #define AltOut_PushPull		0x9//10-01	Max. output speed (01: 10 MHz | 10:  2 MHz | 11: 50 MHz)
 #define AltOut_OpenDrain	0x13//11-01	Max. output speed (01: 10 MHz | 10:  2 MHz | 11: 50 MHz)
 
-void MyGPIO_Init (MyGPIO_Struct_TypeDef * GPIOStructPtr);
+void MyGPIO_Init (GPIO_TypeDef * GPIO, char PIN, char CONF);
 int MyGPIO_Read (GPIO_TypeDef * GPIO, char GPIO_pin); //0 or different
 void MyGPIO_Set (GPIO_TypeDef * GPIO, char GPIO_pin);
 void MyGPIO_Reset (GPIO_TypeDef * GPIO, char GPIO_pin);
