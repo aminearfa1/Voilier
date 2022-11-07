@@ -1,6 +1,6 @@
-#include "../Include/Driver_GPIO.h"
+#include "../Include/MyGPIO.h"
 
-void GPIO_Init (GPIO_TypeDef * GPIO, char PIN, char CONF){
+void MyGPIO_Init (GPIO_TypeDef * GPIO, char PIN, char CONF){
 	if (GPIO == GPIOA)
 		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	else if (GPIO == GPIOB)
