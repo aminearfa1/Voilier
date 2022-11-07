@@ -2,8 +2,8 @@
 #include "MyGPIO.h"
 #include "stm32f10x.h"
 
-MyGPIO_Struct_TypeDef tx;
-MyGPIO_Struct_TypeDef Rx;
+void (*prUART1) (void); 
+void (*prUART3) (void); 
 
 //structure d'initialisation Usart
 void My_Usart_init(USART_TypeDef * UART){
@@ -16,7 +16,7 @@ void My_Usart_init(USART_TypeDef * UART){
 	//Gpio init rx
 	MyGPIO_Init(GPIOA, 10, In_Floating);
 	
-	USART1->BRR |= (int) 72000000/(9600) ; //Fréquence h USART1 = 72MHz
+	USART1->BRR = (int) 72000000/(9600) ; //Fréquence h USART1 = 72MHz
 	USART1->CR1|= USART_CR1_TE; //USART Tx
 	USART1->CR1 |= USART_CR1_RE; //USART Rx
 	USART1->CR1 |= USART_CR1_PCE; //parité enable
@@ -49,19 +49,21 @@ void MyUART_ActiveIT (USART_TypeDef * UART, char Prio, void (*IT_function) (void
 	if (UART == USART1) {
 		NVIC_EnableIRQ(USART1_IRQn);
 		NVIC_SetPriority(USART1_IRQn, Prio);
-		ptrUART1 = IT_function;
+		prUART1 = IT_function;
 	}else if (UART == USART3) {
 		NVIC_EnableIRQ(USART3_IRQn);
 		NVIC_SetPriority(USART3_IRQn, Prio);
-		ptrUART3 = IT_function;
+		prUART3 = IT_function;
 	}
 }
 
 
 void Usart_tx(USART_TypeDef * usart, char * info ) {
-	while ( !(USART1->SR & (USART_SR_TXE))){// TXE , SR=Status Register
-	USART1->DR =(ch & 0xFF); //écrire dans le Data Register
-	}	
+	while(*info != '\0' ){
+	while ( !(USART1->SR & USART_SR_TXE)){}// TXE , SR=Status Register
+	USART1->DR =(*info); //écrire dans le Data Register
+	info++;
+	}
 }
 	
 
@@ -71,8 +73,8 @@ char Usart_rx(USART_TypeDef * UART ) {
 	
 
 void USART1_IRQHandler (void) {
-	if (ptrUART1 != 0) (*ptrUART1) () ;
+	if (prUART1 != 0) (*prUART1) () ;
 }
 void USART3_IRQHandler (void) {
-	if (ptrUART3 != 0) (*ptrUART3) () ;
+	if (prUART3 != 0) (*prUART3) () ;
 }

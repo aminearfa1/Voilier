@@ -1,9 +1,4 @@
 --cpu Cortex-M3
-".\objects\batterie.o"
-".\objects\girouette.o"
-".\objects\informations.o"
-".\objects\plateau.o"
-".\objects\voiles.o"
 ".\objects\main.o"
 ".\objects\myadc.o"
 ".\objects\mygpio.o"
