@@ -18,7 +18,7 @@ typedef struct
 	*****************************************************************************************
 	*/
 	
-	void MyTimer_Base_Init(MyTimer_Struct_TypeDef * Timer);
+	void MyTimer_Base_Init(TIM_TypeDef * Timer, unsigned short ARR, unsigned short PSC);
 	
 	#define MyTimer_Base_Start(Timer) Timer->CR1|=Timer->CR1 |= TIM_CR1_CEN; 
 	#define MyTimer_Base_Stop(Timer) Timer->CR1 &= ~(TIM_CR1_CEN);
@@ -48,6 +48,7 @@ typedef struct
 void MyTimer_PWM_Init (TIM_TypeDef * Timer , char Channel ) ;
 void MyTimer_PWM_ConfigureRatio (TIM_TypeDef * Timer , char Channel, int Ratio ) ;
 
+void MyTimer_Codeur_Incremental_Init(TIM_TypeDef * Timer);
 	#endif
 
 

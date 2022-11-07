@@ -1,4 +1,8 @@
+#ifndef MySpi
+#define MySpi
 #include <stm32f10x.h>
+
+static uint8_t RxData[6];
 
 
 void SPIConfig(void);
@@ -12,5 +16,4 @@ void adxl_write (uint8_t address, uint8_t value);
 void adxl_read (uint8_t address);
 void adxl_init (void);
 
-float xg, yg, zg;
-int16_t x,y,z;
+#endif

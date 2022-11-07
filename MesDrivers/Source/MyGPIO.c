@@ -1,38 +1,24 @@
-#include "../Include/Driver_GPIO.h"
+#include "../Include/MyGPIO.h"
 
-void MyGPIO_Init(MyGPIO_Struct_TypeDef * GPIOStructPtr){
-	//Activation d'horloge
+void MyGPIO_Init (GPIO_TypeDef * GPIO, char PIN, char CONF){
+	if (GPIO == GPIOA)
+		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+	else if (GPIO == GPIOB)
+		RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+	else if (GPIO == GPIOC)
+		RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+	else
+		RCC->APB2ENR |= RCC_APB2ENR_IOPDEN;
 	
-	if(GPIOStructPtr->GPIO==GPIOA)
-		{
-			RCC-> APB2ENR |=RCC_APB2ENR_IOPAEN;
-		}
-	if(GPIOStructPtr->GPIO==GPIOB)
-	{
-		RCC-> APB2ENR |=RCC_APB2ENR_IOPBEN;
-	}
-	if(GPIOStructPtr->GPIO==GPIOC)
-	{
-		RCC-> APB2ENR |=RCC_APB2ENR_IOPCEN;
-	}
-	
-	// Configure it (page 171):
-	if (GPIOStructPtr->GPIO_Pin < 8) { //We use CRL in this case
-		GPIOStructPtr->GPIO->CRL &=~ (0xF << (GPIOStructPtr->GPIO_Pin * 4) ); //Reset field
-		GPIOStructPtr->GPIO->CRL |= (GPIOStructPtr->GPIO_Conf << (GPIOStructPtr->GPIO_Pin * 4)); //Set field
-	}else {
-		GPIOStructPtr->GPIO->CRH &=~ (0xF << ((GPIOStructPtr ->GPIO_Pin - 8) * 4)); //Reset field
-		GPIOStructPtr->GPIO->CRH |= (GPIOStructPtr->GPIO_Conf << ((GPIOStructPtr ->GPIO_Pin - 8) * 4)); //Set field
-	}
-	
-	// If we use Pull Up or Pull Down we have to initialize the ODR bit
-	if(GPIOStructPtr->GPIO_Conf == In_PullUp){
-		GPIOStructPtr->GPIO->ODR |= 0x1 << GPIOStructPtr->GPIO_Pin;
-	}else if(GPIOStructPtr -> GPIO_Conf == In_PullDown){
-		GPIOStructPtr->GPIO->ODR &= ~(0x1 << GPIOStructPtr->GPIO_Pin);
-	}
+  if (PIN < 8){
+     GPIO->CRL &= ~(0xf << PIN*4);
+     GPIO->CRL |= (CONF << PIN*4); 
+  }
+  else {
+     GPIO->CRH &= ~(0xf << (PIN-8)*4);
+     GPIO->CRH |= (CONF << (PIN-8)*4); 
+  }
 }
-
 // Reads IDR of GPIO_Pin
 int MyGPIO_Read(GPIO_TypeDef * GPIO, char GPIO_pin ) {
 	return GPIO->IDR & (1 << GPIO_pin); //page 172
