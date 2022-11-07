@@ -10,23 +10,20 @@ void (* pointer4) (void);
 
 
 // Initialize TIMER
-void MyTimer_Base_Init ( MyTimer_Struct_TypeDef * TimerStruct)
-{
-	if(TimerStruct->Timer==TIM1){
+void Timer_Base_Init (TIM_TypeDef * Timer, unsigned short ARR, unsigned short PSC) {
+	if (Timer == TIM1)
 		RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
-	}else if(TimerStruct->Timer==TIM2){
+	else if (Timer == TIM2)
 		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
-	}
-	else if(TimerStruct->Timer==TIM3){
+	else if (Timer == TIM3)
 		RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
-	}
-	else if(TimerStruct->Timer==TIM4){
+	else if (Timer == TIM4)
 		RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
-	}
+	else
+		return;
 	
-	TimerStruct->Timer->ARR = TimerStruct->ARR;
-	TimerStruct->Timer->PSC = TimerStruct->PSC;
-
+	Timer->PSC = PSC;
+	Timer->ARR = ARR;
 }
 
 // Activate Interruption
@@ -124,7 +121,14 @@ void MyTimer_PWM_ConfigureRatio(TIM_TypeDef * Timer, char Channel, int Ratio){
 	}
 }
 
-
+//Mode Incrémental
+void MyTimer_Codeur_Incremental_Init(TIM_TypeDef * Timer){
+	Timer->CCMR1 &= ~(TIM_CCMR1_CC1S |TIM_CCMR1_CC2S);
+	Timer->CCMR1 |= TIM_CCMR1_CC1S_0 |TIM_CCMR1_CC2S_0;
+	Timer->SMCR &= ~(TIM_SMCR_SMS) ;
+	Timer->SMCR |= TIM_SMCR_SMS_1 | TIM_SMCR_SMS_0 ;
+	Timer->CCER &=~(TIM_CCER_CC1P |TIM_CCER_CC2P | TIM_CCER_CC1NP | TIM_CCER_CC2NP);
+}
 
 void TIM2_IRQHandler( void)
 {
