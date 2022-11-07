@@ -10,7 +10,7 @@ void (* pointer4) (void);
 
 
 // Initialize TIMER
-void Timer_Base_Init (TIM_TypeDef * Timer, unsigned short ARR, unsigned short PSC) {
+void MyTimer_Base_Init (TIM_TypeDef * Timer, unsigned short ARR, unsigned short PSC) {
 	if (Timer == TIM1)
 		RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
 	else if (Timer == TIM2)

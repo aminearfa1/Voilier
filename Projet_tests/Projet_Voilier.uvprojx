@@ -421,13 +421,6 @@
         </Group>
         <Group>
           <GroupName>Service</GroupName>
-          <Files>
-            <File>
-              <FileName>Informations.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
@@ -853,13 +846,6 @@
         </Group>
         <Group>
           <GroupName>Service</GroupName>
-          <Files>
-            <File>
-              <FileName>Informations.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
