@@ -51,4 +51,5 @@ void MyTimer_PWM_ConfigureRatio (TIM_TypeDef * Timer , char Channel, int Ratio )
 void MyTimer_Codeur_Incremental_Init(TIM_TypeDef * Timer);
 	#endif
 
+void setCycle_PWM(TIM_TypeDef * Timer, char Channel, int cycle);
 
