@@ -2,7 +2,6 @@
 #include "MyGPIO.h"
 #include "MyUsart.h"
 #include "MyTimer.h"
-#include "Plateau.h"
 
 
 char Data;
@@ -16,11 +15,13 @@ void Callback(){
 			//Commande à éxecuter.
 			if ( vitesse <= 0)  {
 				MyGPIO_Set(GPIOC,7);
-				setCycle_PWM(TIM4,1,(-1)*vitesse);
+				//setCycle_PWM(TIM4,1,(-1)*vitesse);
+				MyTimer_PWM_ConfigureRatio(TIM4,1,(-1)*vitesse);
 			}
 			else {
 				MyGPIO_Reset(GPIOC,7);
-				setCycle_PWM(TIM4,1,vitesse);
+				//setCycle_PWM(TIM4,1,vitesse);
+				MyTimer_PWM_ConfigureRatio(TIM4,1,vitesse);
 			}
 }
 
@@ -33,19 +34,18 @@ int main (){
 	MyGPIO_Init(GPIOC, 7, Out_PushPull);
 	
 	// Initialisation du Timer 4 à (20kHz)
-	MyTimer_Base_Init(TIM4,3599 ,0);
+	MyTimer_Base_Init(TIM4,3599 ,1);
 	
-	// Initialisation de la PWM sur TIM4 & Channel 1
-	MyTimer_PWM_Init(TIM4, 1);
-	
-	// Etablissement du rapport cyclique à 0%
-	MyTimer_PWM_ConfigureRatio(TIM4,1, 0);
-
 	//initialisation de l'usart1
 	My_Usart_init(USART1);
 
 	//Récupération des commandes du plateau transmise par la télécommande
-	MyUART_ActiveIT(USART1,1, callback);
+	MyUART_ActiveIT(USART1,1, Callback);
+	
+	// Initialisation de la PWM sur TIM4 & Channel 1
+	MyTimer_PWM_Init(TIM4, 1);
+	
+	//MyTimer_PWM_ConfigureRatio(TIM4,1, 0);
 
 	// Lancement du compteur
 	MyTimer_Base_Start(TIM4);

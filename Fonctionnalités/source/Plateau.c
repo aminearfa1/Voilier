@@ -1,7 +1,6 @@
 #include "stm32f10x.h"
 #include "MyGPIO.h"
 #include "MyTimer.h"
-#include "Plateau.h"
 #include "MyUsart.h"
 
 void Plateau_Init(){
@@ -22,11 +21,4 @@ void Plateau_Init(){
 	// Lancement du compteur
 	MyTimer_Base_Start(TIM4);
 	
-}	
-
-void Plateau_set_speed(char  vitesse){
-
-
-
-
 }
