@@ -395,19 +395,9 @@
           <GroupName>MesDrivers</GroupName>
           <Files>
             <File>
-              <FileName>MyADC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MesDrivers\Source\MyADC.c</FilePath>
-            </File>
-            <File>
               <FileName>MyGPIO.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\MesDrivers\Source\MyGPIO.c</FilePath>
-            </File>
-            <File>
-              <FileName>MySpi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MesDrivers\Source\MySpi.c</FilePath>
             </File>
             <File>
               <FileName>MyTimer.c</FileName>
@@ -415,9 +405,9 @@
               <FilePath>..\MesDrivers\Source\MyTimer.c</FilePath>
             </File>
             <File>
-              <FileName>MyUsart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MesDrivers\Source\MyUsart.c</FilePath>
+              <FileName>Lib_Com_Periph_2022.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\MesDrivers\Source\Lib_Com_Periph_2022.lib</FilePath>
             </File>
           </Files>
         </Group>
