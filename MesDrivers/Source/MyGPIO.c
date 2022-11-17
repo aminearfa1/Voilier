@@ -39,3 +39,19 @@ void MyGPIO_Reset(GPIO_TypeDef * GPIO, char GPIO_pin ) {
 void MyGPIO_Toggle(GPIO_TypeDef * GPIO, char GPIO_pin) {
 	GPIO->ODR ^= 0x1 << GPIO_pin;
 }
+
+//Interruption
+void MyGPIO_Girouette_ActiveIT (char Prio) {
+		//int interupnumber ;
+	//EXTI1_IRQHandler
+	//interupnumber = EXTI2_IRQn ;
+	AFIO->EXTICR[0] = AFIO_EXTICR1_EXTI2_PB;
+	
+	EXTI->IMR |= EXTI_IMR_MR2;
+	EXTI->RTSR |= EXTI_RTSR_TR2;
+	// à mettre dans le gpio
+	NVIC_SetPriority(EXTI2_IRQn, Prio);
+	NVIC_EnableIRQ(EXTI2_IRQn);
+	
+}
+
