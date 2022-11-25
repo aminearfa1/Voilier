@@ -10,6 +10,7 @@
       <TargetName>Réelle</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -338,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>..\MesDrivers\Include;..\Fonctionnalités\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -423,9 +424,14 @@
           <GroupName>Service</GroupName>
           <Files>
             <File>
+              <FileName>Batterie.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Fonctionnalités\Source\Batterie.c</FilePath>
+            </File>
+            <File>
               <FileName>Informations.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
+              <FilePath>..\Fonctionnalités\Source\Informations.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -770,7 +776,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\MesDrivers\Include</IncludePath>
+              <IncludePath>..\MesDrivers\Include;..\Fonctionnalités\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -855,9 +861,14 @@
           <GroupName>Service</GroupName>
           <Files>
             <File>
+              <FileName>Batterie.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Fonctionnalités\Source\Batterie.c</FilePath>
+            </File>
+            <File>
               <FileName>Informations.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Informations.c</FilePath>
+              <FilePath>..\Fonctionnalités\Source\Informations.c</FilePath>
             </File>
           </Files>
         </Group>

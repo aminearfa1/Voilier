@@ -1,1 +1,1 @@
-.\objects\informations.o: Fonctionnalités\Informations.c
+.\objects\informations.o: ..\Fonctionnalités\Source\Informations.c

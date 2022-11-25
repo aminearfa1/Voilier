@@ -17,33 +17,17 @@ Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
 CPU DLL:         SARMCM3.DLL V5.34.0.0
 Dialog DLL:      DARMSTM.DLL V1.68.0.0
-Target DLL:      UL2CM3.DLL V1.163.9.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
 Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
-U:\Windows\Bureau\Voilier\Projet\Projet_Voilier.uvprojx
-Project File Date:  10/21/2022
+U:\Windows\Bureau\Voilier\Projet_Com_tests\Projet_Voilier.uvprojx
+Project File Date:  11/18/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'Simulation'
-assembling startup_stm32f10x_md.s...
-compiling MySpi.c...
-compiling MyGPIO.c...
-..\MesDrivers\Source\MyGPIO.c(1): error:  #5: cannot open source input file "../Include/Driver_GPIO.h": No such file or directory
-  #include "../Include/Driver_GPIO.h"
-..\MesDrivers\Source\MyGPIO.c: 0 warnings, 1 error
-compiling MyUsart.c...
-..\MesDrivers\Include\MyUsart.h(26): warning:  #1-D: last line of file ends without a newline
-  void Usart_tx (USART_InitTypeDef * usart, int ch ) ;
-..\MesDrivers\Source\MyUsart.c(9): error:  #42: operand types are incompatible ("USART_InitTypeDef *" and "USART_TypeDef *")
-  	if (UART == USART1) {
-..\MesDrivers\Source\MyUsart.c(16): error:  #42: operand types are incompatible ("USART_InitTypeDef *" and "USART_TypeDef *")
-  		if (UART == USART3) {
-..\MesDrivers\Source\MyUsart.c: 1 warning, 2 errors
-compiling system_stm32f10x.c...
-compiling MyTimer.c...
-".\Objects\Projet_Voilier.axf" - 3 Error(s), 1 Warning(s).
+Build target 'Réelle'
+".\Objects\Projet_Voilier.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +45,7 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\STM32F103RB
-  .\RTE\_Simulation
+  .\RTE\_R_elle
   C:\Programdata\Keil\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
   C:\Programdata\Keil\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
 
@@ -71,11 +55,10 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\system_stm32f10x.c
-Target not created.
-Build Time Elapsed:  00:00:02
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
