@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\Fonctionnalité;..\MesDrivers\Include</IncludePath>
+              <IncludePath>..\MesDrivers\Include;..\Fonctionnalité\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -463,6 +463,11 @@
               <FileName>Girouette.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Fonctionnalité\Source\Girouette.c</FilePath>
+            </File>
+            <File>
+              <FileName>Voile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Fonctionnalité\Source\Voile.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -931,6 +936,11 @@
               <FileName>Girouette.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Fonctionnalité\Source\Girouette.c</FilePath>
+            </File>
+            <File>
+              <FileName>Voile.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Fonctionnalité\Source\Voile.c</FilePath>
             </File>
           </Files>
         </Group>
