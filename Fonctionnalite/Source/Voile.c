@@ -29,7 +29,7 @@ int Voile_AngleRameneDansIntervalle (int angle)
 	}
 	else if ((angle >180) || (angle<=315))
 	{
-		angleI= -(angle*2/3)+210;
+		angleI= -(angle*2/3)-210;
 	}
 	return angleI;	
 }
@@ -37,7 +37,7 @@ int Voile_AngleRameneDansIntervalle (int angle)
 int Voile_AngletoRatio(int angle) {
 	
 	// à voir pourquoi ?
-	return ( ((angle/18)+5)*10);
+	return (((angle/18)+5));
 }
 
 

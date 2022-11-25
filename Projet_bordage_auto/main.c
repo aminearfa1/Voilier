@@ -10,7 +10,7 @@ int main (){
 	Voile_Init(TIM3, GPIOB,1);
 	
 	while (1) {
-		//a =  Girouette_Convert(TIM2);
+		a =  Girouette_Convert(TIM2);
 		Voile_Set_RatioPWM(Voile_AngleRameneDansIntervalle(a));
 	}
 	

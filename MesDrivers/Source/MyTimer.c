@@ -82,7 +82,7 @@ void MyTimer_PWM_Init (TIM_TypeDef * Timer , char Channel )
 			//Reset all the bits
 			Timer -> CCMR2 &=~ (TIM_CCMR2_OC3M);
 			//TIMx capture/compare mode register x (TIMx_CCMRx) / OC1M: Output compare 1 mode OC2PE: Output compare 2 preload enable
-			Timer -> CCMR2 |= TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2 | TIM_CCMR2_OC3PE; //PWM mode 1
+			Timer -> CCMR2 |= TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3PE; //PWM mode 1
 			//Timer -> CCMR2 |= TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2 | TIM_CCMR2_OC3PE; //PWM mode 2
 			break;
 		case 4:
@@ -91,7 +91,7 @@ void MyTimer_PWM_Init (TIM_TypeDef * Timer , char Channel )
 			//Reset all the bits
 			Timer -> CCMR2 &=~ (TIM_CCMR2_OC4M);
 			//TIMx capture/compare mode register x (TIMx_CCMRx) / OC1M: Output compare 1 mode OC2PE: Output compare 2 preload enable
-			Timer -> CCMR2 |= TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2 | TIM_CCMR2_OC4PE; //PWM mode 1
+			Timer -> CCMR2 |= TIM_CCMR2_OC4M_1 | TIM_CCMR2_OC4M_2 | TIM_CCMR2_OC4PE; //PWM mode 1
 			//Timer -> CCMR2 |= TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2 | TIM_CCMR2_OC4PE; //PWM mode 2
 			break;
 	}
