@@ -10,7 +10,6 @@
       <TargetName>Réelle</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -339,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\MesDrivers\Include;..\Fonctionnalités\Include</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -423,22 +422,10 @@
               <FileType>1</FileType>
               <FilePath>..\MesDrivers\Source\SysTick.c</FilePath>
             </File>
-            <File>
-              <FileName>Batterie.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Source\Batterie.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Service</GroupName>
-          <Files>
-            <File>
-              <FileName>Informations.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Source\Informations.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
@@ -781,7 +768,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\MesDrivers\Include;..\Fonctionnalités\Include</IncludePath>
+              <IncludePath>..\MesDrivers\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -865,22 +852,10 @@
               <FileType>1</FileType>
               <FilePath>..\MesDrivers\Source\SysTick.c</FilePath>
             </File>
-            <File>
-              <FileName>Batterie.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Source\Batterie.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Service</GroupName>
-          <Files>
-            <File>
-              <FileName>Informations.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Fonctionnalités\Source\Informations.c</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

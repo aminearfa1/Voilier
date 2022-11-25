@@ -1,5 +1,6 @@
 #include "Batterie.h"
 
+#define MAX 11000
 
 
 void Batterie_Init(void)
@@ -15,12 +16,14 @@ void Batterie_Init(void)
 
 int Get_Val_Batterie(void)
 {
-	return ((get_single_conversion()));
+	// Vin = 1/13 Vbatt
+	//
+	return ((get_single_conversion()*13*3300/4096));
 }
 
 int Is_Batterie_Faible()
 {
 	// l'ADC retourne une valeur sur 12 bits,
 	// on se retrouve avec des valeurs comprises entre 0 et 4095
-	return Get_Val_Batterie() ;
+	return (Get_Val_Batterie() < MAX) ;
 }

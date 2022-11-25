@@ -22,12 +22,56 @@ Dialog DLL:      TARMSTM.DLL V1.66.0.0
  
 <h2>Project:</h2>
 U:\Windows\Bureau\Voilier\Projet_Com_tests\Projet_Voilier.uvprojx
-Project File Date:  11/18/2022
+Project File Date:  11/25/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Réelle'
-".\Objects\Projet_Voilier.axf" - 0 Error(s), 0 Warning(s).
+compiling SysTick.c...
+..\MesDrivers\Include\SysTick.h(5): warning:  #1-D: last line of file ends without a newline
+  void SysTick_Handler(void);
+..\MesDrivers\Source\SysTick.c: 1 warning, 0 errors
+compiling MyADC.c...
+..\MesDrivers\Source\../Include/MyADC.h(4): warning:  #1295-D: Deprecated declaration ADC_Init - give arg types
+  void ADC_Init();
+..\MesDrivers\Source\../Include/MyADC.h(5): warning:  #1295-D: Deprecated declaration get_single_conversion - give arg types
+  int get_single_conversion();
+..\MesDrivers\Source\MyADC.c: 2 warnings, 0 errors
+compiling MyGPIO.c...
+compiling MyUsart.c...
+compiling MyTimer.c...
+compiling MySpi.c...
+..\MesDrivers\Source\MySpi.c(32): warning:  #550-D: variable "temp"  was set but never used
+  	uint8_t temp;
+..\MesDrivers\Source\MySpi.c(93): warning:  #177-D: variable "x"  was declared but never referenced
+  	int16_t x,y,z;
+..\MesDrivers\Source\MySpi.c(93): warning:  #177-D: variable "y"  was declared but never referenced
+  	int16_t x,y,z;
+..\MesDrivers\Source\MySpi.c(93): warning:  #177-D: variable "z"  was declared but never referenced
+  	int16_t x,y,z;
+..\MesDrivers\Source\MySpi.c(94): warning:  #177-D: variable "rec"  was declared but never referenced
+  	uint8_t rec;
+..\MesDrivers\Source\MySpi.c: 5 warnings, 0 errors
+compiling main.c...
+..\MesDrivers\Include\MyADC.h(4): warning:  #1295-D: Deprecated declaration ADC_Init - give arg types
+  void ADC_Init();
+..\MesDrivers\Include\MyADC.h(5): warning:  #1295-D: Deprecated declaration get_single_conversion - give arg types
+  int get_single_conversion();
+..\MesDrivers\Include\SysTick.h(5): warning:  #1-D: last line of file ends without a newline
+  void SysTick_Handler(void);
+main.c: 3 warnings, 0 errors
+assembling startup_stm32f10x_md.s...
+compiling Informations.c...
+compiling Batterie.c...
+..\MesDrivers\Include\MyADC.h(4): warning:  #1295-D: Deprecated declaration ADC_Init - give arg types
+  void ADC_Init();
+..\MesDrivers\Include\MyADC.h(5): warning:  #1295-D: Deprecated declaration get_single_conversion - give arg types
+  int get_single_conversion();
+..\Fonctionnalités\Source\Batterie.c: 2 warnings, 0 errors
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=1716 RO-data=268 RW-data=56 ZI-data=1632  
+".\Objects\Projet_Voilier.axf" - 0 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,11 +98,11 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\system_stm32f10x.c
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\system_stm32f10x.c
       Include file:  RTE_Driver\Config\RTE_Device.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
