@@ -22,5 +22,5 @@ int Is_Batterie_Faible()
 {
 	// l'ADC retourne une valeur sur 12 bits,
 	// on se retrouve avec des valeurs comprises entre 0 et 4095
-	return Get_Valeur_Batterie() ;
+	return Get_Val_Batterie() ;
 }

@@ -2,4 +2,4 @@
 
 
 void ADC_Init();
-int single_conversion();
+int get_single_conversion();
