@@ -24,5 +24,6 @@ int MyGPIO_Read (GPIO_TypeDef * GPIO, char GPIO_pin); //0 or different
 void MyGPIO_Set (GPIO_TypeDef * GPIO, char GPIO_pin);
 void MyGPIO_Reset (GPIO_TypeDef * GPIO, char GPIO_pin);
 void MyGPIO_Toggle (GPIO_TypeDef * GPIO, char GPIO_pin);
+void MyGPIO_Girouette_ActiveIT (char Prio) ;
 
 #endif
