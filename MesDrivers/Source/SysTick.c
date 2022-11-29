@@ -2,7 +2,14 @@
 #include "stm32f10x.h"
 
 
-void (*SysTick_IT)(void)=0;
+void (*SysTick_Ptr)(void);
+
+
+void SysTick_Handler(void){
+
+(*SysTick_Ptr)();
+
+};
 
 
 void SysTick_Conf(int PERIOD){
@@ -13,10 +20,11 @@ SysTick->VAL = 0;
 SysTick->LOAD = PERIOD; 
 	}
 
-
-void SysTick_Init(int Tick, int Cpt, void (*Interrupt_f)(void)){
-	SysTick_Config(SystemCoreClock / (10*(Tick+1)));
-	SysTick_IT=Interrupt_f;
-	cpt=Cpt;
-	keep=Cpt;
+	
+void Systick_Set_IT(char Prio, void(*Systick_function)(void)){
+	SysTick->CTRL |= SysTick_CTRL_TICKINT;
+		SysTick_Ptr = Systick_function;
+		NVIC_EnableIRQ(SysTick_IRQn);
+		NVIC_SetPriority(SysTick_IRQn, Prio);
 }
+

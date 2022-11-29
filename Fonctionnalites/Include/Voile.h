@@ -12,5 +12,5 @@ int Voile_AngleRameneDansIntervalle (int angle) ;
 
 void Voile_Set_RatioPWM (int angle);
 
-void Girouette_Voile_Init(void);
+
 	

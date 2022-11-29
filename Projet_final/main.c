@@ -12,9 +12,9 @@
 
 char Data;
 int vitesse=0;
-/*float a;
+float a;
 int ratio;
-int angleR;*/
+int angleR;
 
 void CallbackV(){
 	Data = Usart_rx(USART1);
@@ -32,31 +32,47 @@ void CallbackV(){
 				MyTimer_PWM_ConfigureRatio(TIM4,1,vitesse);
 			}
 }
-/*
+
+
 int Cpt_Tourniquet;
-void Tourniquet(void)  // 100ms
+
+
+void Tourniquet(void)  // 2000ms
 {
-	Cpt_Tourniquet=(Cpt_Tourniquet+1)%100;
+
+	Cpt_Tourniquet=(Cpt_Tourniquet+1)%2000;
 	
-	if ((Cpt_Tourniquet%10)==0)
+	if ((Cpt_Tourniquet%50)==0)
 	{
-		
+			if (Is_Batterie_Faible())
+				Send_Message("Attention Batteri Faible\n");
+	
+	}
+	if ((Cpt_Tourniquet%100)==0)
+	{
+			
+			Send_Message("Welcome DEMO\n");
+	}
+	if ((Cpt_Tourniquet%20)==0)
+	{
+		a =  Girouette_Convert(TIM2);
+	  angleR=Voile_AngleRameneDansIntervalle(a);
+	  ratio= Voile_AngletoRatio(angleR);
+	  Voile_Set_RatioPWM(angleR);
+	}
+		if ((Cpt_Tourniquet%20)==0)
+	{
+	MyUART_ActiveIT(USART1,1, CallbackV);
 	}
 	
+
 }
-*/
 
 
 //test USART
 char info;
 
 
-void inter(void){
-	if(Is_Batterie_Faible()){
-	Send_Message("Attention Batteri Faible\n");
-	}
-	
-}
 
 
 void callback(){
@@ -65,30 +81,19 @@ info = Usart_rx(USART1);
 
 int main (){
 	
-//tout les 2 seconde
-//SysTick_Init(0, 20, (*inter));
 	
-//My_Usart_init(USART1);
+My_Usart_init(USART1);
+Batterie_Init();
+Plateau_Init();
 	
-//Send_Message("Usart Fonctionnel\n");
-
-//Batterie_Init();
-	
-	
-Girouette_Voile_Init();
-	
-	
-
-//Plateau_Init();
-	
-//Récupération des commandes du plateau transmise par la télécommande
-//MyUART_ActiveIT(USART1,1, CallbackV);
+Girouette_Init (TIM2,GPIOA,0,1);
+Voile_Init(TIM3, GPIOB,1);
+		
+SysTick_Conf(72000000);
+Systick_Set_IT(0, Tourniquet);
 while(1){ 
 	
-	 /* a =  Girouette_Convert(TIM2);
-	  angleR=Voile_AngleRameneDansIntervalle(a);
-	  ratio= Voile_AngletoRatio(angleR);
-	  Voile_Set_RatioPWM(angleR);*/
+	  
 	
 	}
 }

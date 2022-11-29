@@ -1,5 +1,5 @@
 
+void SysTick_Handler(void);
+void SysTick_Conf(int PERIOD);
 
-void SysTick_Conf(void);
-
-void SysTick_Init(int Tick, int Cpt, void (*Interrupt_f)(void));
+void Systick_Set_IT(char Prio, void(*Systick_function)(void));

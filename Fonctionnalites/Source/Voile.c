@@ -3,9 +3,6 @@
 #include "MyGPIO.h"
 #include "Girouette.h"
 
-float a;
-int ratio;
-int angleR;
 
 void Voile_Init(TIM_TypeDef *Timer, GPIO_TypeDef * GPIO, char Pin) {
 	
@@ -53,18 +50,6 @@ void Voile_Set_RatioPWM (int angle) {
 	MyTimer_PWM_ConfigureRatio(TIM3,4,ratio);
 }
 
-void Girouette_Voile_Init(void) 
-{
-		Girouette_Init (TIM2,GPIOA,0,1);
-		Voile_Init(TIM3, GPIOB,1);
-		
-		while(1){ 
+
 	
-	  a =  Girouette_Convert(TIM2);
-	  angleR=Voile_AngleRameneDansIntervalle(a);
-	  ratio= Voile_AngletoRatio(angleR);
-	  Voile_Set_RatioPWM(angleR);
-	
-	}
-}
 
