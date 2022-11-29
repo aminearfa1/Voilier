@@ -12,9 +12,9 @@
 
 char Data;
 int vitesse=0;
-float a;
+/*float a;
 int ratio;
-int angleR;
+int angleR;*/
 
 void CallbackV(){
 	Data = Usart_rx(USART1);
@@ -68,27 +68,27 @@ int main (){
 //tout les 2 seconde
 //SysTick_Init(0, 20, (*inter));
 	
-My_Usart_init(USART1);
+//My_Usart_init(USART1);
 	
 //Send_Message("Usart Fonctionnel\n");
 
 //Batterie_Init();
-
-Girouette_Init (TIM2,GPIOA,0,1);
-Voile_Init(TIM3, GPIOB,1);
+	
+	
+Girouette_Voile_Init();
 	
 	
 
 //Plateau_Init();
 	
 //Récupération des commandes du plateau transmise par la télécommande
-MyUART_ActiveIT(USART1,1, CallbackV);
+//MyUART_ActiveIT(USART1,1, CallbackV);
 while(1){ 
 	
-	  a =  Girouette_Convert(TIM2);
+	 /* a =  Girouette_Convert(TIM2);
 	  angleR=Voile_AngleRameneDansIntervalle(a);
 	  ratio= Voile_AngletoRatio(angleR);
-	  Voile_Set_RatioPWM(angleR);
+	  Voile_Set_RatioPWM(angleR);*/
 	
 	}
 }
