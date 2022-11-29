@@ -12,7 +12,7 @@ void ADC_Init()
 	ADC1->CR2 |= ADC_CR2_CAL;
 	while (ADC1->CR2 & ADC_CR2_CAL);
 }
-int single_conversion()
+int Get_Single_Conversion()
 {
 	ADC1->CR2 |=ADC_CR2_ADON;  //Activation ADC ADON à 1
 	while(!(ADC1->SR & ADC_SR_EOC) ) {} //jusqu'à fin de conversion

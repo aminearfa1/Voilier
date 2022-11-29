@@ -71,6 +71,9 @@ char Usart_rx(USART_TypeDef * UART ) {
 	return (signed char) UART->DR ;	
 	}	
 	
+	void Send_Message(char * info){
+	Usart_tx(USART1, info );
+	}
 
 void USART1_IRQHandler (void) {
 	if (prUART1 != 0) (*prUART1) () ;

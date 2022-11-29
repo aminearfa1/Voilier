@@ -19,7 +19,7 @@ SysTick->CTRL |= SysTick_CTRL_ENABLE;
 }
 
 
-void Sys_Init(int Tick, int Cpt, void (*Interrupt_f)(void)){
+void SysTick_Init(int Tick, int Cpt, void (*Interrupt_f)(void)){
 	SysTick_Config(SystemCoreClock / (10*(Tick+1)));
 	SysTick_IT=Interrupt_f;
 	cpt=Cpt;

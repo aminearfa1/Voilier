@@ -1,1 +1,1 @@
-void Plateau_Init();
+void Plateau_Init(void);

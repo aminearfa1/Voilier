@@ -3,6 +3,7 @@
 #include "MyTimer.h"
 #include "MyUsart.h"
 
+
 void Plateau_Init(){
 	// PWM 
 	MyGPIO_Init(GPIOB, 6, AltOut_PushPull);
@@ -15,10 +16,10 @@ void Plateau_Init(){
 	// Initialisation de la PWM sur TIM4 & Channel 1
 	MyTimer_PWM_Init(TIM4, 1);
 	
+	
 	// Etablissement du rapport cyclique à 0%
 	MyTimer_PWM_ConfigureRatio(TIM4,1, 0);
 
 	// Lancement du compteur
 	MyTimer_Base_Start(TIM4);
-	
 }

@@ -1,4 +1,6 @@
 #include "Batterie.h"
+#include "MyADC.h"
+#include "MyGPIO.h"
 
 #define MAX 11000
 
@@ -18,7 +20,7 @@ int Get_Val_Batterie(void)
 {
 	// Vin = 1/13 Vbatt
 	//
-	return ((get_single_conversion()*13*3300/4096));
+	return ((Get_Single_Conversion()*13*3300/4096));
 }
 
 int Is_Batterie_Faible()

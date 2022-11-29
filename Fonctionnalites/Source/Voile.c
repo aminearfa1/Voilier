@@ -4,6 +4,7 @@
 #include "Girouette.h"
 
 
+
 void Voile_Init(TIM_TypeDef *Timer, GPIO_TypeDef * GPIO, char Pin) {
 	
 	
@@ -25,11 +26,11 @@ int Voile_AngleRameneDansIntervalle (int angle)
 	}
 	else if ((angle >=45 ) || (angle <=180)) 
 	{
-		angleI= (angle*2/3)-30;
+		angleI= (-angle*2/3)+30;
 	}
 	else if ((angle >180) || (angle<=315))
 	{
-		angleI= -(angle*2/3)-210;
+		angleI= (-angle*2/3)+210;
 	}
 	return angleI;	
 }
@@ -37,12 +38,12 @@ int Voile_AngleRameneDansIntervalle (int angle)
 int Voile_AngletoRatio(int angle) {
 	
 	// à voir pourquoi ?
-	return (((angle/18)+5));
+	return (((10*angle/18)+50));
 }
 
 
 void Voile_Set_RatioPWM (int angle) {
-	
-	MyTimer_PWM_ConfigureRatio(TIM3,4,Voile_AngletoRatio(angle));
+	int ratio =Voile_AngletoRatio(angle);
+	MyTimer_PWM_ConfigureRatio(TIM3,4,ratio);
 }
 
