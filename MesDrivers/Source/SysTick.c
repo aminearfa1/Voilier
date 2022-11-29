@@ -3,20 +3,15 @@
 
 
 void (*SysTick_IT)(void)=0;
-unsigned int cpt =0;
-unsigned int keep=0;
 
-void SysTick_Conf(void){
 
-if (cpt!=0)cpt--;
-else if (cpt==0 && SysTick_IT!=0 ){
+void SysTick_Conf(int PERIOD){
 
-SysTick->CTRL &= ~(SysTick_CTRL_ENABLE);
-(*SysTick_IT)();
-cpt=keep;
+SysTick->CTRL |= SysTick_CTRL_CLKSOURCE;
 SysTick->CTRL |= SysTick_CTRL_ENABLE;
+SysTick->VAL = 0; 
+SysTick->LOAD = PERIOD; 
 	}
-}
 
 
 void SysTick_Init(int Tick, int Cpt, void (*Interrupt_f)(void)){
